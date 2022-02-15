@@ -1,4 +1,4 @@
-[2~  int pivotIndex(vector<int>& nums) {
+int pivotIndex(vector<int>& nums) {
         int n = nums.size();
         int left_sum = 0, right_sum = 0;
         for(int it: nums){
