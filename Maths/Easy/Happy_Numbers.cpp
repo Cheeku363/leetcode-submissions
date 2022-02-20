@@ -1,0 +1,34 @@
+/* Problem Statement :- A happy number is a number defined by the following process:
+
+ Starting with any positive integer, replace the number by the sum of the squares of its digits.
+ Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+ Those numbers for which this process ends in 1 are happy.
+*/
+
+// Solution
+
+//when single digit - check 1 then true 
+//else if it gets to 4 then willl get stuck in cycle so return false
+//this pattern was found by observing pattern in output for 1 to 9
+
+class Solution {
+public:
+    bool isHappy(int n) {
+        //cout<<n<<endl;
+        
+        if(n/10 == 0) //single digit
+        {
+            if(n == 1) return true;
+            else if(n == 4) return false; //single digit numbers start repeating cycles beginning at 4
+            //else return false;
+        }
+        
+        int newNum = 0;
+        while(n > 0)
+        {
+            newNum += pow((n % 10),2);
+            n /= 10;
+        }
+        
+        return isHappy(newNum);
+    }
